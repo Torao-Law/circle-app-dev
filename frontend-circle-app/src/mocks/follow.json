@@ -1,0 +1,20 @@
+[
+  {
+    "author_picture": "https://bit.ly/ryan-florence",
+    "author_full_name": "Kevin smith",
+    "author_username": "@ksmith",
+    "isFollow": true
+  },
+  {
+    "author_picture": "https://bit.ly/ryan-florence",
+    "author_full_name": "Kevin smith",
+    "author_username": "@ksmith",
+    "isFollow": false
+  },
+  {
+    "author_picture": "https://bit.ly/ryan-florence",
+    "author_full_name": "Kevin smith",
+    "author_username": "@ksmith",
+    "isFollow": true
+  }
+]

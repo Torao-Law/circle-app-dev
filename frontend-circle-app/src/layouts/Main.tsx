@@ -3,6 +3,7 @@ import MenuBar from "@/components/MenuBar";
 import MyProfile from "@/components/MyProfile";
 import ChildrenProps from "@/interface/Children"
 import FollowSuggested from "@/components/FollowSuggested";
+import Footer from "@/components/Footer";
 
 export default function Main({children}: ChildrenProps) {
   return (
@@ -24,6 +25,10 @@ export default function Main({children}: ChildrenProps) {
             
             <Box mt={3}>
               <FollowSuggested />
+            </Box>
+            
+            <Box mt={3}>
+              <Footer />
             </Box>
           </Box>
         </Box>
