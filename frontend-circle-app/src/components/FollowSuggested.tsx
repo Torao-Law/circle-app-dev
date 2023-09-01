@@ -21,7 +21,9 @@ export default function FollowSuggested() {
                     </Box>
                   </Flex>
                   <Box>
-                    <Button size={"xs"} variant={"outline"} textColor={"white"} rounded={"full"}>Follow</Button>
+
+
+                    <Button size={"xs"} variant={"outline"} textColor={"white"} rounded={"full"}>{(data.isFollow === true) ? ("Following") : ("Follow")}</Button>
                   </Box>
                 </Flex>
               )
