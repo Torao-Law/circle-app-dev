@@ -1,9 +1,22 @@
 import { Box, Text } from "@chakra-ui/react";
 import { ThreadCard } from "@/features/thread";
-import Dummy from "@/mocks/thread.json"
 import { PostModal } from "@/features/thread/components/PostThread";
+import { API } from "@/lib/api";
+import { useEffect, useState } from "react";
+import ThreadInterface from "@/interface/Thread";
 
 export default function Home() {
+  const [threads, setThreads] = useState<ThreadInterface[]>()
+
+  async function getThreads() {
+    const response = await API.get('/threads')
+    setThreads(response?.data)
+  }
+
+  useEffect(() => {
+    getThreads()
+  }, [])
+
   return (
     <>
       <Box mt={7}>
@@ -12,19 +25,20 @@ export default function Home() {
 
       <PostModal />
 
-      {Dummy.map(data => {
+      {threads?.map(data => {
         return (
           <ThreadCard 
-            id={data.id} 
-            author_username={data.author_username}
-            author_full_name={data.author_full_name}
-            author_picture={data.author_picture}
-            content={data.content}
-            image={data.image}
-            is_liked={data.is_liked}
-            likes_count={data.likes_count}
-            posted_at={data.posted_at}
-            replies_count={data.replies_count}
+            key={data.id}
+            id={data?.id} 
+            author_username={"@rebbecca"}
+            author_full_name={"Rebbeca Eltra"}
+            author_picture={data?.image}
+            content={data?.content}
+            image={data?.image}
+            is_liked={true}
+            likes_count={23}
+            posted_at={data?.posted_at}
+            replies_count={245}
           />
         )
       })}

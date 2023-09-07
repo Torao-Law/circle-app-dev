@@ -1,8 +1,11 @@
 import ThreadInterface from "@/interface/Thread"
+import durationPosted from "@/utils/CountDuration"
 import { Avatar, Box, Card, CardBody, Heading, Text, Flex, Image } from "@chakra-ui/react"
 
 export function ThreadCard(props: ThreadInterface) {
   const { author_full_name, author_picture, author_username, content, id, image, is_liked, likes_count, posted_at, replies_count } = props
+
+  
 
   return (
     <>
@@ -12,13 +15,17 @@ export function ThreadCard(props: ThreadInterface) {
         </Box>
 
         <Box>
-          <Flex alignItems={"center"}>
+          <Flex alignItems={"baseline"}>
             <Text fontSize='lg' as='b' mt={0} me={2}>Segun Adebayo</Text>
-            <Text fontSize='xs' textColor={"whiteAlpha.800"} >Creator, Chakra UI</Text>
+            <Flex alignItems={"center"}>
+              <Text fontSize='xs' textColor={"whiteAlpha.800"} me={2}>Creator, Chakra UI</Text>
+              <Text fontSize='xs' textColor={"whiteAlpha.800"} me={2} className="fa-solid fa-circle" style={{fontSize: 4}}></Text>
+              <Text fontSize='xs' textColor={"whiteAlpha.800"} > {durationPosted(posted_at)}</Text>
+            </Flex>
           </Flex>
       
           <Box>
-            <Text>View a summary of all your customers over the last month.</Text>
+            <Text>{content}</Text>
             <Image
               objectFit='cover'
               maxW={{ base: '100%', sm: '200px' }}
@@ -28,11 +35,11 @@ export function ThreadCard(props: ThreadInterface) {
             
             <Flex mt={2}>
               <Text me={3}>
-                <i className="fa-regular fa-heart"></i> 234
+                <i className="fa-regular fa-heart"></i> {likes_count}
               </Text>
 
               <Text>
-                <i className="fa-regular fa-comment"></i> 243 Replies
+                <i className="fa-regular fa-comment"></i> {replies_count} Replies
               </Text>
             </Flex>
           </Box>
@@ -41,3 +48,5 @@ export function ThreadCard(props: ThreadInterface) {
     </>
   )
 }
+
+
